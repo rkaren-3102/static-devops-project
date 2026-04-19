@@ -1,9 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18-alpine'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
+    agent any
+
+    environment {
+        IMAGE_NAME = 'static-devops-project'
+        CONTAINER_NAME = 'my-static-site'
+        PORT = '8081'
     }
 
     stages {
@@ -31,26 +32,35 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image...'
-                sh 'docker build -t static-devops-project .'
+                sh 'docker build -t ${IMAGE_NAME} .'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying container...'
-                sh 'docker stop my-static-site || true'
-                sh 'docker rm my-static-site || true'
-                sh 'docker run -d --name my-static-site -p 8081:80 static-devops-project'
+                echo 'Stopping old container if running...'
+                sh 'docker stop ${CONTAINER_NAME} || true'
+                sh 'docker rm ${CONTAINER_NAME} || true'
+                echo 'Starting new container...'
+                sh 'docker run -d --name ${CONTAINER_NAME} -p ${PORT}:80 ${IMAGE_NAME}'
             }
         }
     }
 
     post {
         success {
-            echo 'Pipeline succeeded! Site is live at http://localhost:8081'
+            echo '=========================================='
+            echo 'Pipeline succeeded!'
+            echo 'Site is live at http://localhost:8081'
+            echo '=========================================='
         }
         failure {
-            echo 'Pipeline failed. Check the logs above.'
+            echo '=========================================='
+            echo 'Pipeline FAILED. Check the logs above.'
+            echo '=========================================='
+        }
+        always {
+            echo 'Pipeline finished.'
         }
     }
 }
