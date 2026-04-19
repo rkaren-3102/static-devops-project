@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My DevOps Project</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <h1>My DevOps Project</h1>
+      <button id="theme-toggle" aria-label="Toggle dark mode">Dark mode</button>
+    </div>
+    <p class="subtitle">Built with HTML, Docker &amp; Jenkins</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>About</h2>
+      <p>This is a static web page deployed using a full CI/CD pipeline.</p>
+    </section>
+
+    <section class="card">
+      <h2>Pipeline Status</h2>
+      <p id="status-text">Loading status...</p>
+    </section>
+
+    <section class="card">
+      <h2>Tech Stack</h2>
+      <ul>
+        <li>HTML + CSS + JavaScript</li>
+        <li>Docker + Nginx</li>
+        <li>Jenkins CI/CD</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Deployed via Jenkins &amp; Docker</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

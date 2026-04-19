@@ -1,0 +1,12 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "rules": {
+    "no-unused-vars": "error",
+    "no-undef": "error",
+    "eqeqeq": "error",
+    "semi": ["error", "always"]
+  }
+}

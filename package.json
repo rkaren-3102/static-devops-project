@@ -1,0 +1,13 @@
+{
+  "name": "static-devops-project",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint src/app.js",
+    "lint:css": "stylelint src/style.css"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0"
+  }
+}

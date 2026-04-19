@@ -1,0 +1,121 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-page: #f4f6f8;
+  --bg-card: #ffffff;
+  --bg-header: #1a1a2e;
+  --text-primary: #1a1a2e;
+  --text-footer: #666;
+  --shadow: rgba(0,0,0,0.08);
+  --btn-bg: rgba(255,255,255,0.15);
+  --btn-color: #ffffff;
+  --btn-border: rgba(255,255,255,0.4);
+}
+
+body.dark {
+  --bg-page: #0f0f1a;
+  --bg-card: #1e1e2e;
+  --bg-header: #0a0a14;
+  --text-primary: #e0e0f0;
+  --text-footer: #999;
+  --shadow: rgba(0,0,0,0.3);
+  --btn-bg: rgba(255,255,255,0.08);
+  --btn-color: #e0e0f0;
+  --btn-border: rgba(255,255,255,0.2);
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  background: var(--bg-header);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+#theme-toggle {
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: 1px solid var(--btn-border);
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+#theme-toggle:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.subtitle {
+  opacity: 0.7;
+  font-size: 1rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.card ul {
+  padding-left: 1.2rem;
+}
+
+.card li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+  font-size: 0.85rem;
+  color: var(--text-footer);
+  transition: color 0.3s;
+}
