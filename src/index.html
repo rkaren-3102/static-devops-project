@@ -13,31 +13,79 @@
       <button id="theme-toggle" aria-label="Toggle dark mode">Dark mode</button>
     </div>
     <p class="subtitle">Built with HTML, Docker &amp; Jenkins</p>
+    <div class="badges">
+      <span class="badge">HTML5</span>
+      <span class="badge">Docker</span>
+      <span class="badge">Jenkins</span>
+      <span class="badge">Nginx</span>
+      <span class="badge">ESLint</span>
+    </div>
   </header>
 
   <main>
-    <section class="card">
-      <h2>About</h2>
-      <p>This is a static web page deployed using a full CI/CD pipeline.</p>
-    </section>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num" id="build-count">0</div>
+        <div class="stat-label">Total builds</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="uptime">0s</div>
+        <div class="stat-label">Uptime</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Lint pass rate</div>
+      </div>
+    </div>
 
-    <section class="card">
-      <h2>Pipeline Status</h2>
-      <p id="status-text">Loading status...</p>
-    </section>
+    <div class="cards">
+      <div class="card">
+        <h2>Pipeline status</h2>
+        <div class="status-live">
+          <span class="status-dot"></span> All systems operational
+        </div>
+        <div class="pipeline">
+          <span class="stage pass">&#10003; Checkout</span>
+          <span class="arrow">&#8594;</span>
+          <span class="stage pass">&#10003; Install</span>
+          <span class="arrow">&#8594;</span>
+          <span class="stage pass">&#10003; Lint</span>
+          <span class="arrow">&#8594;</span>
+          <span class="stage pass">&#10003; Build</span>
+          <span class="arrow">&#8594;</span>
+          <span class="stage pass">&#10003; Deploy</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+      </div>
 
-    <section class="card">
-      <h2>Tech Stack</h2>
-      <ul>
-        <li>HTML + CSS + JavaScript</li>
-        <li>Docker + Nginx</li>
-        <li>Jenkins CI/CD</li>
-      </ul>
-    </section>
+      <div class="card">
+        <h2>Live clock</h2>
+        <p class="card-sub">Current time</p>
+        <div id="clock" class="clock-display">--:--:--</div>
+        <p id="date-str" class="date-str"></p>
+      </div>
+
+      <div class="card">
+        <h2>Tech stack</h2>
+        <div class="tech-grid">
+          <div class="tech-item"><span class="tech-dot html"></span>HTML5</div>
+          <div class="tech-item"><span class="tech-dot css"></span>CSS3</div>
+          <div class="tech-item"><span class="tech-dot js"></span>JavaScript</div>
+          <div class="tech-item"><span class="tech-dot docker"></span>Docker</div>
+          <div class="tech-item"><span class="tech-dot jenkins"></span>Jenkins</div>
+          <div class="tech-item"><span class="tech-dot nginx"></span>Nginx</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>About</h2>
+        <p class="about-text">A static web page deployed through a full CI/CD pipeline. Every push to GitHub triggers an automated build, lint check, Docker containerization and deployment.</p>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <p>Deployed via Jenkins &amp; Docker</p>
+    <p>Deployed via Jenkins &amp; Docker &nbsp;|&nbsp; Served by Nginx</p>
   </footer>
 
   <script src="app.js"></script>
